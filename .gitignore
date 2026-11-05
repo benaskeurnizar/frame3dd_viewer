@@ -1,0 +1,32 @@
+# ignore every extension-less file in the repo root (compiled binaries, Kc, Mc, app, renderer...)
+/*
+# keep files with an extension (build.sh, README.md, future_build.txt, ...) and all folders
+!/*.*
+!/*/
+# extension-less files we do want tracked
+!/LICENSE
+!/Makefile
+
+# generated at run time
+/imgui.ini
+
+# build output
+/build/
+*.o
+*.a
+*.so
+*.exe
+
+# debugging
+core
+core.*
+vgcore.*
+*.log
+
+# editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db

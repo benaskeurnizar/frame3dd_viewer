@@ -1,0 +1,8 @@
+find_package(OpenGL REQUIRED)
+find_package(glfw3 3.3 REQUIRED)
+
+add_library(renderer src/renderer.c third_party/glad/src/glad.c)
+target_include_directories(renderer
+    PUBLIC include
+    PRIVATE third_party/glad/include)
+target_link_libraries(renderer PRIVATE glfw OpenGL::GL ${CMAKE_DL_LIBS})
