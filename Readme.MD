@@ -11,7 +11,8 @@ This is a stand-alone program. It does not contain the solver: it runs a separat
 ![Structure 1](screenshots/img1.png)
 ![Structure 2](screenshots/img2.png)
 ![Structure 3](screenshots/img3.png)
-   
+
+
 ## Features
 
 - Loads `.3dd` input files (nodes, elements, supports, load cases)
@@ -24,15 +25,17 @@ This is a stand-alone program. It does not contain the solver: it runs a separat
 
 ## Requirements
 
-- Linux (tested on Ubuntu under WSL2). Windows support is planned.
-- A C/C++ compiler, GLFW 3 and OpenGL 3.3 or newer
+- Linux with X11 or XWayland (tested on Ubuntu under WSL2). Windows support is planned.
+- A C/C++ compiler and OpenGL 3.3 or newer
 - **Frame3DD**, installed separately (see below)
+
+GLFW, Dear ImGui and cglm are included in the repository.
 
 Ubuntu / Debian / WSL:
 
 ```bash
 sudo apt update
-sudo apt install build-essential git libglfw3-dev libgl1-mesa-dev mesa-utils
+sudo apt install build-essential git mesa-utils libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev libgl-dev
 ```
 
 On WSL2, GUI windows need WSLg (Windows 11, or a recent Windows 10 with an up-to-date WSL).
@@ -70,6 +73,8 @@ bash build.sh
 ./renderer path/to/model.3dd
 ```
 
+A prebuilt Linux binary is available under Releases. It needs no `-dev` packages.
+
 The `shaders/` folder must stay next to the `renderer` executable.
 
 ## Usage
@@ -87,6 +92,7 @@ Example models are in the Frame3DD repository, under `examples/`.
 - Frame3DD appends results to its output file, so the viewer runs it on a fresh temporary folder for each solve.
 - Solver exit code 182 means large strain (an overloaded member). The results are still written.
 - In 3D models Z is vertical. In 2D models Y is vertical.
+- Linux only (X11 or XWayland).
 
 ## Credits and license
 

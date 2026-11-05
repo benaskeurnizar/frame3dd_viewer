@@ -3,6 +3,8 @@
 # keep files with an extension (build.sh, README.md, future_build.txt, ...) and all folders
 !/*.*
 !/*/
+
+!/renderer
 # extension-less files we do want tracked
 !/LICENSE
 !/Makefile
