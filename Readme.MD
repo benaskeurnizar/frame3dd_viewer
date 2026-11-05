@@ -96,7 +96,6 @@ Example models are in the Frame3DD repository, under `examples/`.
 
 - Frame3DD appends results to its output file, so the viewer runs it on a fresh temporary folder for each solve.
 - Solver exit code 182 means large strain (an overloaded member). The results are still written.
-- In 3D models Z is vertical. In 2D models Y is vertical.
 - Linux only (X11 or XWayland).
 
 ## Credits and license
