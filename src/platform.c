@@ -130,11 +130,16 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
   }
 }
 
+void glfwErrorCallback(int error, const char* description) {
+    fprintf(stderr, "GLFW error %d: %s\n", error, description);
+}
+
 
 GLFWwindow*  createWindow(World* world,int width,int height){
 	///#if __linux__ && defined(GLFW_PLATFORM_X11)
 	//if (getenv("WSL_DISTRO_NAME")) glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);   
 	//#endif
+	glfwSetErrorCallback(glfwErrorCallback);
 	if (!glfwInit()) {
         fprintf(stderr, "Failed to init GLFW\n");
         exit(41);
