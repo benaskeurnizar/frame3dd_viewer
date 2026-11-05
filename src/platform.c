@@ -132,7 +132,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 
 GLFWwindow*  createWindow(World* world,int width,int height){
-	#ifdef __linux__
+	#ifdef __linux__ && defined(GLFW_PLATFORM_X11)
 	if (getenv("WSL_DISTRO_NAME")) glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);   
 	#endif
 	if (!glfwInit()) {
