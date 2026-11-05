@@ -36,3 +36,4 @@ Thumbs.db
 
 /GLFW/
 /third_party/glfw/
+!third_party/imgui/LICENSE.txt
