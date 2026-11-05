@@ -22,6 +22,7 @@ core
 core.*
 vgcore.*
 *.log
+*.txt
 
 # editors and OS
 .vscode/
