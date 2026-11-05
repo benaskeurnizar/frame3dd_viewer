@@ -591,11 +591,13 @@ void initWorld(World* world,int width,int height){
 	initPaths();
 	if(!find_frame3dd(NULL,world->solver_path,sizeof(world->solver_path))){
 		world->solver_found = 0;
+		printf("couldn't fine solver\n");
+	}else{
+		world->solver_found = 1;
+		printf("found frame3dd : %s \n",world->solver_path);
 	}
 	memset(&(world->input),0,sizeof(world->input));
 	world->input.first_mouse_press = 1;
-	world->solver_found = 1;
-	printf("found frame3dd : %s \n",world->solver_path);
 	world->view_state |= WASD;
 	world->solved = 0;
 	world->model_loaded = 0;
@@ -649,12 +651,6 @@ void UpdateObjectVertices(Object *o,float *verts, int vertexCount) {
 
 void updateStructureObject(World* world){
 	float scale = 0.1f * world->model.modelSize / world->model.cases[world->load_case].maxDisp;
-	printf("!!!!!!!!!!!!!!!!!!!!!!\n LOOK HERE : \n");
-	printf("Load case: %d\n", world->load_case);
-	printf("Max displacement: %f\n",
-       world->model.cases[world->load_case].maxDisp);
-    printf("Model Size : %f \n",world->model.modelSize);
-	printf("Scale: %f\n", scale);
 
 	int vidx = 0;
 	if(world->render_flags & SHOW_DEFORMED){
