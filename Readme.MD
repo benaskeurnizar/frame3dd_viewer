@@ -1,9 +1,9 @@
 # Frame3DD Viewer
 
-An interactive OpenGL viewer for [Frame3DD](https://github.com/hpgavin/frame3dd), the static and dynamic
-structural analysis program for 2D and 3D frames and trusses.
+An interactive OpenGL viewer for [Frame3DD](https://github.com/hpgavin/frame3dd), the static and dynamic structural analysis program for 2D and 3D frames and trusses.
 
 Open a `.3dd` model, press **Solve**, and inspect the structure, loads, supports, deformed shape and mode shapes.
+
 This is a stand-alone program. It does not contain the solver: it runs a separately installed `frame3dd`.
 
 > Status: early version, under development. Feedback is welcome.
@@ -11,7 +11,6 @@ This is a stand-alone program. It does not contain the solver: it runs a separat
 ![Structure 1](screenshots/img1.png)
 ![Structure 2](screenshots/img2.png)
 ![Structure 3](screenshots/img3.png)
-
 
 ## Features
 
@@ -27,18 +26,24 @@ This is a stand-alone program. It does not contain the solver: it runs a separat
 
 - Linux with X11 or XWayland (tested on Ubuntu under WSL2). Windows support is planned.
 - A C/C++ compiler and OpenGL 3.3 or newer
+- **GLFW 3** (must be installed separately)
 - **Frame3DD**, installed separately (see below)
 
-GLFW, Dear ImGui and cglm are included in the repository.
+Dear ImGui and cglm are included in the repository.
 
-Ubuntu / Debian / WSL:
+### Install dependencies
+
+On Ubuntu / Debian / WSL:
 
 ```bash
 sudo apt update
-sudo apt install build-essential git mesa-utils libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev libgl-dev
+sudo apt install build-essential git mesa-utils libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev libgl-dev libglfw3-dev
 ```
 
+The `libglfw3-dev` package provides the GLFW headers and library required to build the viewer. If you prefer, you can download and install GLFW separately from its [official repository](https://github.com/glfw/glfw).
+
 On WSL2, GUI windows need WSLg (Windows 11, or a recent Windows 10 with an up-to-date WSL).
+
 Check OpenGL with `glxinfo -B`; it should report version 3.3 or higher.
 
 ## Install Frame3DD
@@ -56,11 +61,11 @@ make
 
 The viewer looks for `frame3dd` in this order:
 
-1. the path saved in its settings or chosen in the "Locate Frame3DD" dialog
-2. the `FRAME3DD_EXE` environment variable
-3. the folder of the viewer's own executable
-4. every folder in `PATH`
-5. common locations, then a search of your home folder
+1. The path saved in its settings or chosen in the "Locate Frame3DD" dialog
+2. The `FRAME3DD_EXE` environment variable
+3. The folder of the viewer's own executable
+4. Every folder in `PATH`
+5. Common locations, then a search of your home folder
 
 You do not have to put it on `PATH`. If it is not found, the viewer asks you to locate it when you press Solve.
 
@@ -97,6 +102,7 @@ Example models are in the Frame3DD repository, under `examples/`.
 ## Credits and license
 
 Frame3DD is by Henri P. Gavin (Duke University) and is released under the GPL.
+
 This viewer is released under the GNU General Public License v3.0, see `LICENSE`.
 
 Dear ImGui, GLFW and cglm are used under their own licenses.

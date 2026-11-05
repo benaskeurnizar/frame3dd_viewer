@@ -4,7 +4,6 @@
 !/*.*
 !/*/
 
-!/renderer
 # extension-less files we do want tracked
 !/LICENSE
 !/Makefile
@@ -33,3 +32,7 @@ vgcore.*
 *~
 .DS_Store
 Thumbs.db
+
+
+/GLFW/
+/third_party/glfw/
